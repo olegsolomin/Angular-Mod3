@@ -52,9 +52,9 @@ Here is what you will need to do to complete the assignment:
 
 
 #### Steps for Implementing Assignment Requirements
-1. Declare `ng-app` either on the `html` or the `body` element. Name your app `NarrowItDownApp`.
-2. Create `app.js` in your project and declare an Angular module to match your `ng-app` declaration.
-3. Declare and create a NarrowItDownController (with controller as syntax) that will wrap your search textbox and button as well as the list of found items.
+1. *ok* Declare `ng-app` either on the `html` or the `body` element. Name your app `NarrowItDownApp`.
+2. *ok* Create `app.js` in your project and declare an Angular module to match your `ng-app` declaration.
+3. *ok* Declare and create a NarrowItDownController (with controller as syntax) that will wrap your search textbox and button as well as the list of found items.
 4. Declare and create MenuSearchService. The service should have the following method: getMatchedMenuItems(searchTerm). That method will be responsible for reaching out to the server (using the $http service) to retrieve the list of all the menu items. Once it gets all the menu items, it should loop through them to pick out the ones whose description matches the searchTerm. Once a list of found items is compiled, it should return that list (wrapped in a promise). Remember that the `then` function itself returns a promise. Your method would roughly look like this:
   ```javascript
   return $http(...).then(function (result) {
