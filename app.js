@@ -5,31 +5,19 @@ angular.module('NarrowItDownApp', [])
     .controller('NarrowItDownController', NarrowItDownController)
     .service('MenuSearchService', MenuSearchService)
 
-NarrowItDownController.$inject = ['NarrowItDownController'];
-function NarrowItDownController(NarrowItDownController) {
+    NarrowItDownController.$inject = ['MenuSearchService'];
+    function NarrowItDownController(MenuSearchService) {
     var ctrl = this;
 
-    var promise = MenuSearchService.MenuSearchService();
+    var promise = MenuSearchService.getMatchedMenuItems();
 
     promise.then(function (response) {
-        ctrl.categories = response.data;
+        ctrl.menu_items = response.data;
     })
-        .catch(function (error) {
-            console.log("Something went terribly wrong.");
-        });
-
-    ctrl.logMenuItems = function (shortName) {
-        var promise = MenuSearchService.getMatchedMenuItems(shortName);
-
-        promise.then(function (response) {
-            console.log(response.data);
-        })
-            .catch(function (error) {
-                console.log(error);
-            })
-    };
-
-}
+    .catch(function (error) {
+        console.log("Something went terribly wrong.");
+    })
+    }
     
 MenuSearchService.$inject =['$http']
 function MenuSearchService($http) {
@@ -41,19 +29,9 @@ function MenuSearchService($http) {
             url:  ("https://davids-restaurant.herokuapp.com/menu_items.json")
         });
         return response;
+        
     };
+    
 }
 
 })();
-
-//     getMatchedMenuItems(searchTerm)
-//     $http service
-//         ```javascript
-//   return $http(...).then(function (result) {
-//       // process result and only keep items that match
-//       var foundItems...
-
-//       // return processed items
-//       return foundItems;
-//   
-//   ```

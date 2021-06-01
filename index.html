@@ -10,7 +10,7 @@
     <script src="app.js"></script>
   </head>
 <body>
-   <div class="container"  ng-controller='NarrowItDownController as ctrl'>
+  <div class="container" >
     <h1>Narrow Down Your Chinese Menu Choice</h1>
 
     <div class="form-group">
@@ -19,12 +19,18 @@
     <div class="form-group narrow-button">
       <button class="btn btn-primary">Narrow It Down For Me!</button>
     </div>
-
-    <!-- found-items should be implemented as a component -->
-    <div class="list">
-      <found-items items="ctrl.FoundItems" on-remove="ctrl.remove(index)"></found-items>
-    </div>
   </div>
+    <!-- found-items should be implemented as a component -->
+    <div class = "container" ng-controller='NarrowItDownController as ctrl'>
+      <h3>List of Searched Items</h3>
+      <ul>
+      <li ng-repeat = "item in ctrl.menu_items">
+        {{ item.short_name }}
+        {{ item.name }}
+      </li>
+    </ul>
+    </div>
+  
 
 </body>
 </html>
