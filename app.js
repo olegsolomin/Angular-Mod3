@@ -18,7 +18,7 @@ angular.module('NarrowItDownApp', [])
         console.log("Something went terribly wrong.");
     })
     ctrl.removeItem = function (itemIndex) {
-        MenuSearchService.removeItem(itemIndex);
+        ctrl.menu_items.splice(itemIndex, 1);
     };
     }
     
@@ -34,9 +34,6 @@ function MenuSearchService($http) {
         return response;
         
     }
-    service.removeItem = function(itemIndex) {
-        ctrl.menu_items.splice(itemIndex,1)
-    };
 }
 
 })();
