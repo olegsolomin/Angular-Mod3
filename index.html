@@ -23,12 +23,14 @@
     <!-- found-items should be implemented as a component -->
     <div class = "container" ng-controller='NarrowItDownController as ctrl'>
       <h3>List of Searched Items</h3>
-      <ul>
-      <li ng-repeat = "item in ctrl.menu_items">
-        {{ item.short_name }}
-        {{ item.name }}
-      </li>
-    </ul>
+      <table>
+        <tr ng-repeat = "item in ctrl.menu_items">
+            <td style="background-color:#337ab7; border:5px solid white; text-align:center; color: white">{{ item.short_name}}</td>
+            <td><h5>{{ item.name| uppercase}}</h5></td>
+            <td>{{item.description}}</td>
+            <td> <button class="btn btn-primary" ng-click="">Remove Item!</button></td>
+        </tr>
+        </table>
     </div>
   
 

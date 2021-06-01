@@ -12,7 +12,7 @@ angular.module('NarrowItDownApp', [])
     var promise = MenuSearchService.getMatchedMenuItems();
 
     promise.then(function (response) {
-        ctrl.menu_items = response.data;
+        ctrl.menu_items = response.data.menu_items;
     })
     .catch(function (error) {
         console.log("Something went terribly wrong.");
