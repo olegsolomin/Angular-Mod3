@@ -9,22 +9,22 @@
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
   </head>
-<body>
+<body ng-controller='NarrowItDownController as ctrl'>
   <div class="container" >
     <h1>Narrow Down Your Chinese Menu Choice</h1>
 
     <div class="form-group">
-      <input type="text" placeholder="search term" class="form-control">
+      <input type="text" placeholder="search term" class="form-control" ng-model="ctrl.searchTerm">
     </div>
     <div class="form-group narrow-button">
-      <button class="btn btn-primary">Narrow It Down For Me!</button>
+      <button class="btn btn-primary" ng-click="ctrl.narrowItDown();">Narrow It Down For Me!</button>
     </div>
   </div>
     <!-- found-items should be implemented as a component -->
-    <div class = "container" ng-controller='NarrowItDownController as ctrl'>
+    <div class = "container">
       <h3>List of Searched Items</h3> 
-          <table>
-                <menu-from-matched ng-repeat="item in ctrl.menu_items" ng-style="{'background-color': colors[$index]}"></menu-from-matched>
+            <table>
+                <menu-from-matched ng-repeat="item in ctrl.found" ng-style="{'background-color': colors[$index % colors.length]}"></menu-from-matched>
           </table>
     </div>
   
