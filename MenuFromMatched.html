@@ -1,0 +1,10 @@
+<tr>
+    <td style="background-color:#337ab7; border:5px solid white; text-align:center; color: white">
+        {{ item.short_name}}
+    </td>
+    <td>
+        <h5>{{ item.name| uppercase}}</h5>
+    </td>
+    <td>{{item.description}}</td>
+    <td> <button class="btn btn-primary" ng-click="ctrl.removeItem($index);">Remove Item!</button></td>
+</tr>
