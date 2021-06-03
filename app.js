@@ -26,8 +26,11 @@ angular.module('NarrowItDownApp', [])
         $scope.colors = ['#f1f1f1','#ffffff'];
         var list = this;
         //Returns true if list is empty
-        list.checkFoundList = function () {
-            return typeof list.items !== 'undefined' && list.items.length === 0
+        list.IsEmpty = function () {
+            if (ctrl.found != undefined && ctrl.found.length === 0) {
+                return true;
+            }
+            return false;
         };
     }
 /* // Display menu from url

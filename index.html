@@ -27,7 +27,7 @@
                 <menu-from-matched ng-repeat="item in ctrl.found" ng-style="{'background-color': colors[$index % colors.length]}"></menu-from-matched>
           </table>
     </div>
-  
+  <div class="error" ng-show="list.IsEmpty();">Nothing found!</div>
 
 </body>
 </html>
