@@ -103,7 +103,8 @@ service.getMatchedMenuItems = function (searchTerm) {
         
         for (var i = 0; i < menuItemsLength; i++) {
             var item = response.data.menu_items[i];
-            if (item.description.indexOf(searchTerm) !== -1) {
+            if ((item.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1)||
+                (item.description.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1)) {
                 
                 foundItems.push(item);
             }
