@@ -22,7 +22,7 @@
   </div>
     <!-- found-items should be implemented as a component -->
     <div class = "container">
-      <h3>List of Searched Items</h3> 
+      <h3>List of Searched Items ( {{ctrl.found.length}} ) </h3> 
             <table>
                 <menu-from-matched items="ctrl.found" on-remove="ctrl.removeItem($index);"
                 ng-repeat="item in ctrl.found" ng-style="{'background-color': colors[$index % colors.length]}"></menu-from-matched>
