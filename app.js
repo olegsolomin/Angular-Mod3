@@ -12,6 +12,11 @@ angular.module('NarrowItDownApp', [])
         var ddo = {
             replace: true,
             templateUrl: 'MenuFromMatched.html',
+            // isolated scope
+            // scope: {
+            //     items: '<',
+            //     onRemove: '&'
+            // },
             //for search
             controller: FoundItemsDirectiveController,
             controllerAs: 'list',
@@ -20,19 +25,22 @@ angular.module('NarrowItDownApp', [])
 
         return ddo;
     }
-    //for search
+    //for search and remove
     FoundItemsDirectiveController.$inject = ['$scope'];
     function FoundItemsDirectiveController($scope) {
         $scope.colors = ['#f1f1f1','#ffffff'];
         var list = this;
-        //Returns true if list is empty
-        list.IsEmpty = function () {
-            if (ctrl.found != undefined && ctrl.found.length === 0) {
-                return true;
-            }
-            return false;
-        };
-    }
+        //search and remove in directive
+    //     list.IsEmpty = function () {
+    //         if (list.found != undefined && list.found.length === 0) {
+    //             return true;
+    //         }
+    //         return false;
+    //     };
+    //     list.removeItem = function (itemIndex) {
+    //     list.found.splice(itemIndex, 1);
+    // }
+}
 /* // Display menu from url
     NarrowItDownController.$inject = ['MenuSearchService'];
     function NarrowItDownController(MenuSearchService) {
@@ -65,12 +73,17 @@ angular.module('NarrowItDownApp', [])
         }
 
     };
-    
-    //Remove
-    ctrl.removeItem = function (itemIndex) {
-        ctrl.found.splice(itemIndex, 1);  // instead found menu_items in display mode
+     // search in controller
+    ctrl.IsEmpty = function () {
+        if (ctrl.found != undefined && ctrl.found.length === 0) {
+            return true;
+        }
     };
-}
+    //Remove in controller
+     ctrl.removeItem = function (itemIndex) {
+         ctrl.found.splice(itemIndex, 1);  // instead found menu_items in display mode
+     };
+ }
    // service
 /* // service for display from url 
 

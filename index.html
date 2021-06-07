@@ -24,10 +24,14 @@
     <div class = "container">
       <h3>List of Searched Items</h3> 
             <table>
-                <menu-from-matched ng-repeat="item in ctrl.found" ng-style="{'background-color': colors[$index % colors.length]}"></menu-from-matched>
-          </table>
+                <menu-from-matched items="ctrl.found" on-remove="ctrl.removeItem($index);"
+                ng-repeat="item in ctrl.found" ng-style="{'background-color': colors[$index % colors.length]}"></menu-from-matched>
+            </table>
+            <div class="alert alert-danger"
+            items="ctrl.found" ng-show="ctrl.IsEmpty();">
+              <h4>Nothing found!</h4> 
+            </div>
     </div>
-  <div class="error" ng-show="list.IsEmpty();">Nothing found!</div>
 
 </body>
 </html>
