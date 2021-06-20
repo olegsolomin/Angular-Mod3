@@ -22,15 +22,14 @@
   </div>
     <!-- found-items should be implemented as a component -->
     <div class = "container">
-      <h3>List of Searched Items ( {{ctrl.found.length}} ) </h3> 
-            <table>
-                <menu-from-matched items="ctrl.found" on-remove="ctrl.removeItem($index);"
-                ng-repeat="item in ctrl.found" ng-style="{'background-color': colors[$index % colors.length]}"></menu-from-matched>
-            </table>
-            <div class="alert alert-danger"
-            items="ctrl.found" ng-show="ctrl.IsEmpty();">
-              <h4>Nothing found!</h4> 
-            </div>
+      <h3>List of Searched Items ( {{ctrl.found.length}} ) </h3>
+
+    <menu-from-matched matched = "ctrl.found" on-remove = "ctrl.removeItem(index)"></menu-from-matched>
+
+<!-- <div class="alert alert-danger" ng-show="ctrl.IsEmpty()">
+                <h4>Nothing found!</h4>
+</div> -->
+
     </div>
 
 </body>
