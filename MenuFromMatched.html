@@ -1,6 +1,10 @@
 <table  class="table table-striped">
+  <tr>
+  <td colspan="4" class="bg-info text-center text-white" ng-hide="list.IsEmpty()"><h4>List of Searched Items ( {{list.matched.length}} ) </h4>
+  </td>
+  </tr>
   <tr ng-repeat="item in list.matched">
-    <td style="background-color:#337ab7; border:5px solid white; text-align:center; color: white">
+    <td style="background-color:#337ab7; border:2px solid white; text-align:center; color: white">
         {{ item.short_name}}
     </td>
     <td>
