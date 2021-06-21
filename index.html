@@ -24,11 +24,7 @@
     <div class = "container">
       <!-- <h3>List of Searched Items ( {{ctrl.found.length}} ) </h3> -->
 
-    <menu-from-matched matched = "ctrl.found" on-remove = "ctrl.removeItem(index)"></menu-from-matched>
-
-<!-- <div class="alert alert-danger" ng-show="ctrl.IsEmpty()">
-                <h4>Nothing found!</h4>
-</div> -->
+    <menu-from-matched title = "{{ctrl.title}}" matched = "ctrl.found" on-remove = "ctrl.removeItem(index)"></menu-from-matched>
 
     </div>
 

@@ -1,7 +1,6 @@
 <table  class="table table-striped">
   <tr>
-  <td colspan="4" class="bg-info text-center text-white" ng-hide="list.IsEmpty()"><h4>List of Searched Items ( {{list.matched.length}} ) </h4>
-  </td>
+  <td colspan="4" class="bg-info text-center text-white" ng-hide="list.IsEmpty()"><h4>{{list.title}}</h4></td>
   </tr>
   <tr ng-repeat="item in list.matched">
     <td style="background-color:#337ab7; border:2px solid white; text-align:center; color: white">
@@ -14,7 +13,6 @@
     <td> <button class="btn btn-primary" ng-click="list.onRemove({index: $index});">Remove Item!</button></td>
 </tr>
 <tr>
-  <!-- <td style="background-color:#dc3545; text-align:center; color: white" ng-show="list.IsEmpty()"><h4>Nothing found!</h4> </td> -->
   <td class="bg-danger text-danger text-center" ng-show="list.IsEmpty()"><h4>Nothing found!</h4> </td>
 </tr>
 </table>

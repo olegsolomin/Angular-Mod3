@@ -15,7 +15,7 @@ angular.module('NarrowItDownApp', [])
             scope: {
                matched: '<',
                onRemove: '&',
-               // title: @
+               title: '@'
             },
             controller: FoundItemsDirectiveController,
             controllerAs: 'list',
@@ -33,21 +33,21 @@ angular.module('NarrowItDownApp', [])
                 return true;
             }
         };
-        //
-        // var origTitle = "List of Searched Items";
-        // list.title = origTitle + " (" + list.matched.length + " items )";
 }
 
 // Search
     NarrowItDownController.$inject = ['MenuSearchService'];
     function NarrowItDownController(MenuSearchService) {
         var ctrl = this;
+        var origTitle = "List of Searched Items";
+        ctrl.title = "Fill the form and Press the button!";
 
     ctrl.narrowItDown = function () {
         if (ctrl.searchTerm) {
             var promise = MenuSearchService.getMatchedMenuItems(ctrl.searchTerm);
             promise.then(function (response) {
                 ctrl.found = response;
+                ctrl.title = origTitle + " (" + ctrl.found.length + " items )";
             })
                 .catch(function (error) {
                     console.log(error);
@@ -57,16 +57,11 @@ angular.module('NarrowItDownApp', [])
         }
 
     };
-     // search in controller
-   // ctrl.IsEmpty = function () {
-   //     if (ctrl.found != undefined && ctrl.found.length === 0) {
-   //         return true;
-   //    }
-   //  };
     //Remove in controller
      ctrl.removeItem = function (itemIndex) {
          ctrl.found.splice(itemIndex, 1);
-     };
+         ctrl.title = origTitle + " (" + ctrl.found.length + " items )";
+     }
  }
 
 // service for search
